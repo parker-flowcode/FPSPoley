@@ -17,8 +17,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             {
-                // Si el objeto tiene un script de entrega/baúl, lo activamos
-                DepositBox box = hit.collider.GetComponent<DepositBox>();
+                // Si el objeto (o su padre) tiene un script de entrega/baúl, lo activamos
+                DepositBox box = hit.collider.GetComponentInParent<DepositBox>();
                 if (box != null)
                 {
                     box.DepositCoins();
